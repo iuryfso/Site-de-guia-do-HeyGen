@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Guia completo para criar seu clone digital com IA usando a plataforma HeyGen. Aprenda passo a passo a criar avatares realistas para vídeos profissionais.">
+    <title>Guia do Clone de IA — HeyGen</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="bg-grid"></div>
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+    <div class="bg-glow bg-glow-3"></div>
+
+    <!-- Floating Particles -->
+    <div id="particles"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo">
+                <span class="logo-icon">
+                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                        <circle cx="14" cy="14" r="12" stroke="url(#logoGrad)" stroke-width="2.5"/>
+                        <path d="M10 10L18 14L10 18V10Z" fill="url(#logoGrad)"/>
+                        <defs>
+                            <linearGradient id="logoGrad" x1="0" y1="0" x2="28" y2="28">
+                                <stop stop-color="#00D4FF"/>
+                                <stop offset="1" stop-color="#7B2FFF"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </span>
+                <span class="logo-text">HeyGen <span class="logo-highlight">Guia</span></span>
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="#intro" class="nav-link">Introdução</a>
+                <a href="#steps" class="nav-link">Passos</a>
+                <a href="#tips" class="nav-link">Dicas</a>
+                <a href="#editor" class="nav-link">Editor</a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <div class="hero-badge animate-fade-up">
+                <span class="badge-dot"></span>
+                Tutorial Completo
+            </div>
+            <h1 class="hero-title animate-fade-up delay-1">
+                Guia do Clone<br>
+                <span class="gradient-text">de IA</span>
+            </h1>
+            <p class="hero-subtitle animate-fade-up delay-2">
+                Aprenda a criar seu avatar digital com a plataforma <strong>HeyGen</strong>.<br>
+                Do cadastro à criação de vídeos profissionais com inteligência artificial.
+            </p>
+            <div class="hero-actions animate-fade-up delay-3">
+                <a href="#steps" class="btn-primary">
+                    <span>Começar o Guia</span>
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+                <a href="https://www.heygen.com/pt-br" target="_blank" class="btn-secondary">
+                    Acessar HeyGen
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </div>
+            <div class="hero-stats animate-fade-up delay-4">
+                <div class="stat">
+                    <span class="stat-number" data-count="8">0</span>
+                    <span class="stat-label">Passos</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-number" data-count="10">0</span>
+                    <span class="stat-label">Screenshots</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-number">100<span class="stat-unit">%</span></span>
+                    <span class="stat-label">Gratuito</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-visual animate-fade-up delay-2">
+            <div class="hero-card">
+                <div class="card-header">
+                    <div class="card-dots">
+                        <span></span><span></span><span></span>
+                    </div>
+                    <span class="card-title">HeyGen Studio</span>
+                </div>
+                <img src="images/page8_img1.png" alt="Interface do editor HeyGen mostrando o avatar e ferramentas de edição" class="hero-image" loading="eager">
+            </div>
+        </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section class="section intro-section" id="intro">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag animate-on-scroll">Sobre a Ferramenta</span>
+                <h2 class="section-title animate-on-scroll">O que é o <span class="gradient-text">HeyGen</span>?</h2>
+            </div>
+            <div class="intro-grid">
+                <div class="intro-card animate-on-scroll">
+                    <div class="intro-icon">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                            <path d="M16 4C9.4 4 4 9.4 4 16s5.4 12 12 12 12-5.4 12-12S22.6 4 16 4z" stroke="currentColor" stroke-width="2"/>
+                            <path d="M13 12l6 4-6 4V12z" fill="currentColor"/>
+                        </svg>
+                    </div>
+                    <h3>Avatares Digitais</h3>
+                    <p>Crie clones digitais realistas usando vídeos de treinamento. O HeyGen utiliza IA para replicar aparência, movimentos e voz.</p>
+                </div>
+                <div class="intro-card animate-on-scroll">
+                    <div class="intro-icon">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                            <path d="M8 6h16a2 2 0 012 2v16a2 2 0 01-2 2H8a2 2 0 01-2-2V8a2 2 0 012-2z" stroke="currentColor" stroke-width="2"/>
+                            <path d="M12 16h8M12 12h8M12 20h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3>Vídeos Profissionais</h3>
+                    <p>Produza vídeos com aparência profissional sem necessidade de estúdio. Ideal para redes sociais e marketing digital.</p>
+                </div>
+                <div class="intro-card animate-on-scroll">
+                    <div class="intro-icon">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                            <path d="M16 4l3 6 6.5 1-4.75 4.6L22 22.1 16 19l-6 3.1 1.25-6.5L6.5 11l6.5-1L16 4z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3>Clonagem de Voz</h3>
+                    <p>Embora o HeyGen ofereça clonagem de voz, plataformas como o <strong>ElevenLabs</strong> apresentam resultados mais naturais e realistas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Steps Section -->
+    <section class="section steps-section" id="steps">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag animate-on-scroll">Passo a Passo</span>
+                <h2 class="section-title animate-on-scroll">Como criar seu <span class="gradient-text">Clone Digital</span></h2>
+                <p class="section-desc animate-on-scroll">Siga o guia completo abaixo para criar seu avatar no HeyGen</p>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="progress-track">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+
+            <!-- Step 1 -->
+            <div class="step-card animate-on-scroll" data-step="1">
+                <div class="step-header">
+                    <div class="step-number">
+                        <span>01</span>
+                    </div>
+                    <div class="step-info">
+                        <h3 class="step-title">Criar ou acessar sua conta no HeyGen</h3>
+                        <span class="step-difficulty easy">Fácil</span>
+                    </div>
+                    <button class="step-toggle" aria-label="Expandir passo">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="step-content">
+                    <div class="step-text">
+                        <p>Acesse a plataforma HeyGen e faça login utilizando sua conta Google ou outro método de autenticação disponível. Para isso, clique na opção <strong>"Entrar"</strong>.</p>
+                        <a href="https://www.heygen.com/pt-br" target="_blank" class="step-link">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            Acessar HeyGen
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="step-card animate-on-scroll" data-step="2">
+                <div class="step-header">
+                    <div class="step-number">
+                        <span>02</span>
+                    </div>
+                    <div class="step-info">
+                        <h3 class="step-title">Configurar sua conta</h3>
+                        <span class="step-difficulty easy">Fácil</span>
+                    </div>
+                    <button class="step-toggle" aria-label="Expandir passo">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="step-content">
+                    <div class="step-text">
+                        <p>Após o login, responda às perguntas iniciais sobre o objetivo de utilização da ferramenta. Em seguida, escolha o plano que melhor atende às necessidades.</p>
+                        <div class="tip-box">
+                            <div class="tip-icon">💡</div>
+                            <div>
+                                <strong>Dica:</strong> O plano <strong>Creator</strong> é a melhor opção para a maioria dos usuários. Ele oferece ótima quantidade de créditos e qualidade suficiente para redes sociais. O plano Professional tem recursos adicionais, mas pode não justificar o investimento para conteúdo de redes sociais, já que muitas plataformas comprimem vídeos durante o upload.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step-image-container">
+                        <div class="image-frame">
+                            <img src="images/page1_img2.png" alt="Planos do HeyGen mostrando Gratuito, Criador e Profissional" class="step-image" loading="lazy">
+                            <div class="image-caption">Planos disponíveis no HeyGen</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="step-card animate-on-scroll" data-step="3">
+                <div class="step-header">
+                    <div class="step-number">
+                        <span>03</span>
+                    </div>
+                    <div class="step-info">
+                        <h3 class="step-title">Acessar a área de avatares</h3>
+                        <span class="step-difficulty easy">Fácil</span>
+                    </div>
+                    <button class="step-toggle" aria-label="Expandir passo">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="step-content">
+                    <div class="step-text">
+                        <p>Depois de concluir a configuração inicial, clique na opção <strong>"Avatar"</strong>, localizada no canto superior esquerdo da tela.</p>
+                    </div>
+                    <div class="step-image-container">
+                        <div class="image-frame">
+                            <img src="images/page2_img1.png" alt="Menu lateral do HeyGen com opção Avatar destacada" class="step-image" loading="lazy">
+                            <div class="image-caption">Menu lateral — clique em "Avatar"</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="step-card animate-on-scroll" data-step="4">
+                <div class="step-header">
+                    <div class="step-number">
+                        <span>04</span>
+                    </div>
+                    <div class="step-info">
+                        <h3 class="step-title">Iniciar a clonagem do avatar</h3>
+                        <span class="step-difficulty medium">Médio</span>
+                    </div>
+                    <button class="step-toggle" aria-label="Expandir passo">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="step-content">
+                    <div class="step-text">
+                        <p>Na seção de avatares, selecione a opção <strong>"Clonar uma pessoa real"</strong> para iniciar o processo de criação do seu clone digital.</p>
+                    </div>
+                    <div class="step-image-container">
+                        <div class="image-frame">
+                            <img src="images/page3_img2.png" alt="Opção Clonar uma pessoa real no HeyGen" class="step-image" loading="lazy">
+                            <div class="image-caption">Selecione "Clonar uma pessoa real"</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 5 -->
+            <div class="step-card animate-on-scroll" data-step="5">
+                <div class="step-header">
+                    <div class="step-number">
+                        <span>05</span>
+                    </div>
+                    <div class="step-info">
+                        <h3 class="step-title">Enviar os vídeos para treinamento</h3>
+                        <span class="step-difficulty medium">Médio</span>
+                    </div>
+                    <button class="step-toggle" aria-label="Expandir passo">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="step-content">
+                    <div class="step-text">
+                        <p>Nesta etapa, será necessário realizar o upload dos vídeos gravados que serão utilizados para treinar o avatar. A qualidade desses vídeos influencia diretamente o resultado final da clonagem.</p>
+                        <p>Recomenda-se utilizar gravações com boa iluminação, áudio claro e enquadramento adequado.</p>
+                    </div>
+                    <div class="step-image-container">
+                        <div class="image-frame">
+                            <img src="images/page3_img1.png" alt="Tela de upload de vídeo para treinamento do avatar" class="step-image" loading="lazy">
+                            <div class="image-caption">Upload do vídeo de treinamento</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 6 -->
+            <div class="step-card animate-on-scroll" data-step="6">
+                <div class="step-header">
+                    <div class="step-number">
+                        <span>06</span>
+                    </div>
+                    <div class="step-info">
+                        <h3 class="step-title">Nomear e criar o avatar</h3>
+                        <span class="step-difficulty easy">Fácil</span>
+                    </div>
+                    <button class="step-toggle" aria-label="Expandir passo">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="step-content">
+                    <div class="step-text">
+                        <p>Após concluir o envio e a validação do vídeo, revise a gravação para garantir que a imagem e o áudio estejam adequados. Em seguida, insira um nome para identificar seu avatar no campo <strong>"Nomeie seu avatar"</strong>.</p>
+                        <p>Depois de definir o nome, clique no botão <strong>"Criar Avatar"</strong> para iniciar o processamento. A plataforma utilizará o vídeo enviado para treinar o modelo e gerar seu clone digital.</p>
+                    </div>
+                    <div class="step-image-container">
+                        <div class="image-frame">
+                            <img src="images/page5_img1.png" alt="Tela de nomeação do avatar no HeyGen" class="step-image" loading="lazy">
+                            <div class="image-caption">Nomeie e crie seu avatar</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 7 -->
+            <div class="step-card animate-on-scroll" data-step="7">
+                <div class="step-header">
+                    <div class="step-number">
+                        <span>07</span>
+                    </div>
+                    <div class="step-info">
+                        <h3 class="step-title">Verificação de identidade do avatar</h3>
+                        <span class="step-difficulty medium">Médio</span>
+                    </div>
+                    <button class="step-toggle" aria-label="Expandir passo">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="step-content">
+                    <div class="step-text">
+                        <p>Após a criação do avatar, a plataforma solicitará uma etapa de <strong>verificação de identidade</strong>. Esse processo é obrigatório e garante que a pessoa que está criando o avatar seja a mesma pessoa representada no clone digital.</p>
+                        <p>A verificação é realizada diretamente na plataforma por meio da <strong>webcam</strong> do computador. O HeyGen exibirá um código ou frase específica que deverá ser lida em voz alta durante a gravação.</p>
+                        <div class="tip-box warning">
+                            <div class="tip-icon">🔒</div>
+                            <div>
+                                <strong>Segurança:</strong> Essa medida é fundamental para evitar o uso indevido da ferramenta e impedir a criação de clones digitais sem o consentimento da pessoa retratada.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step-images-duo">
+                        <div class="image-frame">
+                            <img src="images/page6_img1.png" alt="Avatar aguardando verificação" class="step-image" loading="lazy">
+                            <div class="image-caption">Avatar aguardando verificação</div>
+                        </div>
+                        <div class="image-frame">
+                            <img src="images/page6_img2.png" alt="Tela de verificação de identidade" class="step-image" loading="lazy">
+                            <div class="image-caption">Verificação de identidade</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 8 -->
+            <div class="step-card animate-on-scroll" data-step="8">
+                <div class="step-header">
+                    <div class="step-number">
+                        <span>08</span>
+                    </div>
+                    <div class="step-info">
+                        <h3 class="step-title">Criação de vídeos com o avatar</h3>
+                        <span class="step-difficulty medium">Médio</span>
+                    </div>
+                    <button class="step-toggle" aria-label="Expandir passo">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="step-content">
+                    <div class="step-text">
+                        <p>Após a aprovação da verificação de identidade, o avatar estará pronto para ser utilizado na criação de vídeos. Nesta etapa, basta acessar a área de criação de projetos e elaborar o roteiro que será apresentado pelo avatar.</p>
+                        <p>Escolha a forma como a voz será gerada:</p>
+                        <ul class="step-list">
+                            <li>Utilize uma ferramenta de clonagem de voz como o <strong>ElevenLabs</strong> para um áudio mais natural</li>
+                            <li>Grave sua própria voz e envie o arquivo de áudio</li>
+                            <li>Utilize a voz gerada por IA do próprio HeyGen</li>
+                        </ul>
+                        <p>A plataforma sincronizará automaticamente os movimentos labiais e as expressões faciais do avatar com o áudio fornecido.</p>
+                    </div>
+                    <div class="step-image-container">
+                        <div class="image-frame">
+                            <img src="images/page7_img1.jpeg" alt="Avatar pronto para criar vídeos" class="step-image" loading="lazy">
+                            <div class="image-caption">Selecione seu avatar para criar vídeos</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tips Section -->
+    <section class="section tips-section" id="tips">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag animate-on-scroll">Melhores Práticas</span>
+                <h2 class="section-title animate-on-scroll">Dicas para um <span class="gradient-text">Avatar Perfeito</span></h2>
+                <p class="section-desc animate-on-scroll">Siga essas recomendações para obter os melhores resultados na criação do seu clone</p>
+            </div>
+            <div class="tips-grid">
+                <div class="tip-card animate-on-scroll">
+                    <div class="tip-card-icon">🎭</div>
+                    <h4>Seja Natural e Expressivo</h4>
+                    <p>Grave de forma natural, utilizando gestos e entonações compatíveis com a mensagem que deseja transmitir.</p>
+                </div>
+                <div class="tip-card animate-on-scroll">
+                    <div class="tip-card-icon">⏸️</div>
+                    <h4>Pausas Entre Frases</h4>
+                    <p>Faça pequenas pausas entre as frases para que a IA consiga interpretar melhor sua fala e padrões de comunicação.</p>
+                </div>
+                <div class="tip-card animate-on-scroll">
+                    <div class="tip-card-icon">💡</div>
+                    <h4>Boa Iluminação</h4>
+                    <p>Grave em ambientes bem iluminados, preferencialmente com iluminação uniforme sobre o rosto.</p>
+                </div>
+                <div class="tip-card animate-on-scroll">
+                    <div class="tip-card-icon">📷</div>
+                    <h4>Câmera Estável</h4>
+                    <p>Posicione a câmera de forma estável e alinhada aos olhos para uma clonagem mais precisa.</p>
+                </div>
+                <div class="tip-card animate-on-scroll">
+                    <div class="tip-card-icon">👀</div>
+                    <h4>Olhe para a Câmera</h4>
+                    <p>Mantenha o olhar direcionado para a câmera, evitando desviar a atenção para outros pontos.</p>
+                </div>
+                <div class="tip-card animate-on-scroll">
+                    <div class="tip-card-icon">⏱️</div>
+                    <h4>Mínimo 15 Segundos</h4>
+                    <p>Fale de forma expressiva por pelo menos 15 segundos para dar material suficiente à IA.</p>
+                </div>
+            </div>
+            <div class="tips-image animate-on-scroll">
+                <div class="image-frame large">
+                    <img src="images/page4_img1.png" alt="Dicas para uploads melhores no HeyGen" class="step-image" loading="lazy">
+                    <div class="image-caption">Tela de upload com dicas para melhores resultados</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Editor Section -->
+    <section class="section editor-section" id="editor">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag animate-on-scroll">Interface de Edição</span>
+                <h2 class="section-title animate-on-scroll">Conheça o <span class="gradient-text">Editor do HeyGen</span></h2>
+                <p class="section-desc animate-on-scroll">Uma interface intuitiva para criar vídeos profissionais sem conhecimentos avançados</p>
+            </div>
+
+            <div class="editor-showcase animate-on-scroll">
+                <div class="image-frame large">
+                    <img src="images/page8_img1.png" alt="Interface completa do editor HeyGen" class="step-image" loading="lazy">
+                    <div class="image-caption">Interface completa do editor HeyGen</div>
+                </div>
+            </div>
+
+            <div class="editor-features">
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M4 18h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                    </div>
+                    <h4>Script</h4>
+                    <p>Lado esquerdo: digite o roteiro, gere narração por IA ou envie/grave um áudio para o avatar.</p>
+                </div>
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"/><path d="M10 8l6 4-6 4V8z" fill="currentColor"/></svg>
+                    </div>
+                    <h4>Pré-visualização</h4>
+                    <p>Centro: visualize o avatar na cena com a timeline de edição para organizar o conteúdo.</p>
+                </div>
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 3l2.5 5 5.5.8-4 3.9.9 5.4L12 15.6l-4.9 2.5.9-5.4-4-3.9 5.5-.8L12 3z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+                    </div>
+                    <h4>Personalização</h4>
+                    <p>Lado direito: legendas, configurações de avatar, música, elementos visuais e animações.</p>
+                </div>
+            </div>
+
+            <div class="editor-tools animate-on-scroll">
+                <h3 class="editor-tools-title">Ferramentas Disponíveis</h3>
+                <div class="tools-grid">
+                    <div class="tool-item">
+                        <span class="tool-emoji">📝</span>
+                        <span class="tool-name">Legendas</span>
+                        <span class="tool-desc">Fontes, cores e posicionamento</span>
+                    </div>
+                    <div class="tool-item">
+                        <span class="tool-emoji">🧑</span>
+                        <span class="tool-name">Avatar</span>
+                        <span class="tool-desc">Fundo, voz, zoom e posição</span>
+                    </div>
+                    <div class="tool-item">
+                        <span class="tool-emoji">🎵</span>
+                        <span class="tool-name">Música</span>
+                        <span class="tool-desc">Trilhas sonoras e volume</span>
+                    </div>
+                    <div class="tool-item">
+                        <span class="tool-emoji">✨</span>
+                        <span class="tool-name">Elementos</span>
+                        <span class="tool-desc">Textos, imagens e animações</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-icon">
+                        <svg width="24" height="24" viewBox="0 0 28 28" fill="none">
+                            <circle cx="14" cy="14" r="12" stroke="url(#logoGrad2)" stroke-width="2.5"/>
+                            <path d="M10 10L18 14L10 18V10Z" fill="url(#logoGrad2)"/>
+                            <defs>
+                                <linearGradient id="logoGrad2" x1="0" y1="0" x2="28" y2="28">
+                                    <stop stop-color="#00D4FF"/>
+                                    <stop offset="1" stop-color="#7B2FFF"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </span>
+                    <span>Guia do Clone de IA</span>
+                </div>
+                <div class="footer-links">
+                    <a href="https://www.heygen.com/pt-br" target="_blank">HeyGen</a>
+                    <a href="https://elevenlabs.io" target="_blank">ElevenLabs</a>
+                </div>
+                <p class="footer-note">Tutorial educativo. Não afiliado oficialmente ao HeyGen.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" aria-label="Voltar ao topo">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M10 16V4M10 4L5 9M10 4L15 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
