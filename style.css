@@ -28,6 +28,12 @@ a { color: inherit; text-decoration: none; }
 button { font: inherit; }
 img { display: block; max-width: 100%; }
 
+/* Cursor personalizado: mantém o ponto de clique no topo da seta. */
+body { cursor: url('cursor-default.svg') 5 4, auto; }
+a, button, [role="button"], summary, select, label[for], .step-header { cursor: url('cursor-pointer.svg') 15 5, pointer; }
+input, textarea, [contenteditable="true"], p, h1, h2, h3, h4, h5, h6, li, .section-tag, .hero-badge, .stat-number, .stat-label, .card-title, .image-caption, .tool-name, .tool-desc, .footer-note { cursor: url('cursor-text.svg') 16 16, text; }
+.step-header, .step-header * { cursor: url('cursor-pointer.svg') 15 5, pointer; }
+
 .bg-grid, .bg-glow, #particles { position: fixed; inset: 0; pointer-events: none; }
 .bg-grid {
     z-index: -3; opacity: .42;
