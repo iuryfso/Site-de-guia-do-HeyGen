@@ -70,23 +70,6 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     activateNav(); window.addEventListener('scroll', activateNav, { passive: true });
 
-    document.querySelectorAll('.stat-number[data-count]').forEach(counter => {
-        const target = Number(counter.dataset.count);
-        const animate = () => {
-            if (counter.dataset.done) return;
-            counter.dataset.done = 'true';
-            if (reducedMotion) { counter.textContent = target; return; }
-            const started = performance.now();
-            const tick = now => {
-                const amount = Math.min(1, (now - started) / 900);
-                counter.textContent = Math.round(target * (1 - Math.pow(1 - amount, 3)));
-                if (amount < 1) requestAnimationFrame(tick);
-            };
-            requestAnimationFrame(tick);
-        };
-        new IntersectionObserver(entries => entries.forEach(entry => entry.isIntersecting && animate()), { threshold: .5 }).observe(counter);
-    });
-
     if (!reducedMotion) {
         const particles = document.querySelector('#particles');
         for (let i = 0; particles && i < 26; i += 1) {
